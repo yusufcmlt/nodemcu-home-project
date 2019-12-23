@@ -40,26 +40,14 @@ void loop() {
     return;
   }
   
-  Serial.print("Humidity: ");  Serial.print(h);
-  String fireHumid = String(h) + String("%");                                         //convert integer humidity to string humidity 
+  Serial.print("Humidity: ");  Serial.print(h);                                   //convert integer humidity to string humidity 
   Serial.print("%  Temperature: ");  Serial.print(t);  Serial.println("Â°C ");
-  String fireTemp = String(t) + String("Â°C");                                                     //convert integer temperature to string temperature
+                                              //convert integer temperature to string temperature
   delay(5000);
   
-  Firebase.pushString("/nem/deger", fireHumid);                                 //setup path and send readings
-  if(h<60){
-    Firebase.setString("/nem/durum","Dusuk");
-    }
-   else{
-    Firebase.setString("/nem/durum","Yuksek");
-    }
-  
-  Firebase.pushString("/sicaklik/deger", fireTemp);                                //setup path and send readings
-  if(t<25){
-    Firebase.setString("/nem/durum","Dusuk");
-    }
-  else{
-    Firebase.setString("/sicaklik/durum","Yuksek");
-    }
+  Firebase.pushInt("/nem/deger",h);                                 //setup path and send readings
+
+  Firebase.pushInt("/sicaklik/deger",t);                                //setup path and send readings
+
    
 }
