@@ -24,13 +24,6 @@ void loop() {
   int deger= analogRead(A0); // Analog Values 0 to 1023
   Firebase.pushInt("/gaz/deger", deger);
   Serial.println (deger);
-  if (deger>=280){
-      Firebase.setString("/gaz/durum", "yuksek");
-  }
-  else
-  {
-      Firebase.setString("/gaz/durum", "dusuk");
-  }
   
   delay(10000);
 
