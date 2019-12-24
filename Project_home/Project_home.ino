@@ -15,7 +15,7 @@ DHT dht(DHTPIN, DHTTYPE);
 void setup() 
 {
   Serial.begin(9600);
-  pinMode(D1, OUTPUT);
+  pinMode(D1, OUTPUT); //lamba
   delay(1000);                
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);                                     
   Serial.print("Connecting to ");
@@ -44,21 +44,21 @@ void sicakliknem(float t,float h)
   Serial.print("%  Temperature: ");  Serial.print(t);  Serial.println("Â°C ");
   String fireTemp = String(t) + String("Â°C");                                                     
   
-  Firebase.pushString("/nem/deger", fireHumid);                                 
-  if(h<60){
-    Firebase.setString("/nem/durum","Dusuk");
-    }
-   else{
-    Firebase.setString("/nem/durum","Yuksek");
-    }
-  
-  Firebase.pushString("/sicaklik/deger", fireTemp);                                
-  if(t<25){
-    Firebase.setString("/sicaklik/durum","Dusuk");
-    }
-  else{
-    Firebase.setString("/sicaklik/durum","Yuksek");
-    }
+  Firebase.pushInt("/nem/deger",h);                               
+//  if(h<60){
+//    Firebase.setString("/nem/durum","Dusuk");
+//    }
+//   else{
+//    Firebase.setString("/nem/durum","Yuksek");
+//    }
+//  
+  Firebase.pushInt("/sicaklik/deger",t);                                   
+//  if(t<25){
+//    Firebase.setString("/sicaklik/durum","Dusuk");
+//    }
+//  else{
+//    Firebase.setString("/sicaklik/durum","Yuksek");
+//    }
 }
 
 void lamba(int n)
@@ -77,13 +77,13 @@ void gaz(int deger)
 { 
   Firebase.pushInt("/gaz/deger", deger);
   Serial.println (deger);
-  if (deger>=280){
-      Firebase.setString("/gaz/durum", "yuksek");
-  }
-  else
-  {
-      Firebase.setString("/gaz/durum", "dusuk");
-  }
+//  if (deger>=280){
+//      Firebase.setString("/gaz/durum", "yuksek");
+//  }
+//  else
+//  {
+//      Firebase.setString("/gaz/durum", "dusuk");
+//  }
 }
 
 void loop() 
@@ -91,5 +91,5 @@ void loop()
   lamba(Firebase.getInt("lamba"));
   sicakliknem(dht.readTemperature(),dht.readHumidity());
   gaz(analogRead(A0));
-  delay(30000);                                       
+  delay(5000);                                     
 }
