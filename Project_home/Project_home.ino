@@ -5,8 +5,8 @@
 #define FIREBASE_HOST "ev-otomasyon-f0c18.firebaseio.com"                         
 #define FIREBASE_AUTH "uK0BHzQJMsZSLXSKipLVM989vQbP9jxGlFJWdtnc"            
 
-#define WIFI_SSID "network45"                                             
-#define WIFI_PASSWORD "osman45123"                                    
+#define WIFI_SSID "osman"                                             
+#define WIFI_PASSWORD "osman123"                                    
  
 #define DHTPIN D4                                                           
 #define DHTTYPE DHT22                                                       
@@ -16,6 +16,7 @@ void setup()
 {
   Serial.begin(9600);
   pinMode(D1, OUTPUT); //lamba
+  pinMode(D2,OUTPUT); //klima
   delay(1000);                
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);                                     
   Serial.print("Connecting to ");
@@ -73,6 +74,19 @@ void lamba(int n)
   }
 }
 
+
+void klima(int n)
+{
+  if (n==1) {
+      Serial.println("Klima ON");
+      digitalWrite(D2,HIGH);  
+  }
+  if(n==0) {
+      Serial.println("Klima OFF");
+      digitalWrite(D2,LOW);  
+  }
+}
+
 void gaz(int deger)
 { 
   Firebase.pushInt("/gaz/deger", deger);
@@ -89,7 +103,8 @@ void gaz(int deger)
 void loop() 
 { 
   lamba(Firebase.getInt("lamba"));
+  klima(Firebase.getInt("klima"));
   sicakliknem(dht.readTemperature(),dht.readHumidity());
   gaz(analogRead(A0));
-  delay(5000);                                     
+  delay(3000);                                     
 }
