@@ -1,0 +1,38 @@
+.Header-h1{
+    color: rgb(255, 238, 0);
+    background-color: #414066;
+    padding: 30px;
+    margin: 0;
+    text-decoration: none;
+}
+
+.Grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(221, 221, 221);
+
+}
+
+.Button-header{
+    padding: 20px;
+    font-size: 30px;
+    color: #fff;
+    margin: 10px;
+    text-decoration: none;
+
+}
+
+
+
+#tus-button{
+    background-color: rgb(67, 4, 240);
+}
+#tus-button:hover{
+    background-color: rgb(57, 4, 204);
+}
+#grafik-button{
+    background-color: rgb(108, 3, 194);
+}
+#grafik-button:hover{
+    background-color: rgb(93, 4, 167);
+}
