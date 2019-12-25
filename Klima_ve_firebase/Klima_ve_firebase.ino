@@ -3,8 +3,8 @@
 // Set these to run example.
 #define FIREBASE_HOST "ev-otomasyon-f0c18.firebaseio.com"
 #define FIREBASE_AUTH "uK0BHzQJMsZSLXSKipLVM989vQbP9jxGlFJWdtnc"
-#define WIFI_SSID "network45"
-#define WIFI_PASSWORD "osman45123"
+#define WIFI_SSID "osman"
+#define WIFI_PASSWORD "osman123"
 
 void setup() {
 Serial.begin(9600);
