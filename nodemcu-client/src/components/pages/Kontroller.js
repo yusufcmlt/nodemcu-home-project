@@ -24,30 +24,34 @@ export class Kontroller extends Component {
   //Sayfanin goruntulenmesi
   render() {
     return (
-      <div>
-        <h1 className="display-3">Cihaz Kontrolleri</h1>
-        <div className="border bg-light Kontroller-grid">
-          <div className="border gridKontrolUyesi">
+      <div className="border container w-100">
+        <h1 className="display-3 mt-5 mb-5">Cihaz Kontrolleri</h1>
+        <div className="border container">
+          <div className="border row justify-content-center mb-5">
             <button
               onClick={() => this.toggleKontrolDeger("led")}
-              className="btn btn-lg btn-success"
+              className="col-sm btn btn-lg btn-success"
             >
               Ledler
             </button>
-            <span className="empty-div font-weight-bold">Led Durumu:</span>
-            <button className={"btn btn-lg " + this.state.led.background}>
+            <span className="col-sm font-weight-bold">Led Durumu:</span>
+            <button
+              className={"col-sm btn btn-lg " + this.state.led.background}
+            >
               {this.state.led.stateMessage}
             </button>
           </div>
-          <div className="border gridKontrolUyesi">
+          <div className="border row justify-content-center">
             <button
               onClick={() => this.toggleKontrolDeger("fan")}
-              className="btn btn-lg btn-success"
+              className="col-sm btn btn-lg btn-success"
             >
               Fan
             </button>
-            <span className="empty-div font-weight-bold">Fan Durumu:</span>
-            <button className={"btn btn-lg " + this.state.fan.background}>
+            <span className="col font-weight-bold">Fan Durumu:</span>
+            <button
+              className={"col-sm btn btn-lg " + this.state.fan.background}
+            >
               {this.state.fan.stateMessage}
             </button>
           </div>

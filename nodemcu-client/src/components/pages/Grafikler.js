@@ -124,27 +124,21 @@ export class Grafikler extends Component {
       </React.Fragment>
     );
   }
-  setGrafikDurum = (grafikUyesi, grafikDeger, grafikDurum) => {
-    this.setState({
-      [grafikUyesi]: {
-        deger: grafikDeger,
-        grafikDurum: grafikDurum
-      }
-    });
-  };
-
-  //setDegerBackground = stateDurum => {
-  // return stateDurum === "DUSUK" ? "bg-warning" : "bg-danger";
-  //};
 
   getLastGrafikData = grafikItemi => {
+    //Veritabanina parametrelere gore erisim.
     let dataRef = grafikData.ref(grafikItemi);
-    dataRef.on("value", snapshot => {
-      let keyLenght = Object.keys(snapshot.val().deger).length - 1;
-      let lastArrayItem = Object.keys(snapshot.val().deger)[keyLenght];
-      let lastItemOfDeger = snapshot.val().deger[lastArrayItem];
-      //console.log(grafikItemi + " " + lastItemOfDeger);
 
+    //Gelen parametreye gore veritabanindan son verinin alinmasi
+    dataRef.on("value", snapshot => {
+      //Veritabani key listesinin uzunlugu:
+      let keyLenght = Object.keys(snapshot.val().deger).length - 1;
+      //Son keyin alinmasi
+      let lastArrayItem = Object.keys(snapshot.val().deger)[keyLenght];
+      //Son keye karsilik gelen verinin atanmasi
+      let lastItemOfDeger = snapshot.val().deger[lastArrayItem];
+
+      //Sinir degerlerin ve bu duruma gore uygulama elemanlarinin gorsel olarak degismesi
       let durumMessage = "DUSUK";
       let bgState = "bg-success";
       let limitDegerObj = {
@@ -154,14 +148,14 @@ export class Grafikler extends Component {
       };
 
       let limitDeger = limitDegerObj[grafikItemi];
-
+      //Limit degerlerine gore arayuz uzerinde durum mesajlarinin gosterimi
       if (lastItemOfDeger <= limitDeger) {
         durumMessage = "DUSUK";
       } else {
         durumMessage = "YUKSEK";
         bgState = "bg-danger";
       }
-
+      //Fonksiyon parametrelerine gore state in ayarlanmasi
       this.setState({
         [grafikItemi]: {
           deger: lastItemOfDeger,
@@ -171,13 +165,13 @@ export class Grafikler extends Component {
       });
     });
   };
-
+  //Arayuz yuklendiginde calistirilacak fonksiyonlar
   componentDidMount() {
     this.getLastGrafikData("sicaklik");
     this.getLastGrafikData("nem");
     this.getLastGrafikData("gaz");
   }
-
+  //Arayuzden cikildiginda veritabanina erisimin kapanmasi
   componentWillUnmount() {
     grafikData.ref("sicaklik").off();
     grafikData.ref("nem").off();
