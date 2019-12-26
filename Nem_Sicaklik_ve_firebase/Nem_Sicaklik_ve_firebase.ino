@@ -2,11 +2,10 @@
 #include <FirebaseArduino.h>                                               
 #include <DHT.h>                                                           
 
-#define FIREBASE_HOST "ev-otomasyon-f0c18.firebaseio.com"                   
-#define FIREBASE_AUTH "uK0BHzQJMsZSLXSKipLVM989vQbP9jxGlFJWdtnc"           
-
-#define WIFI_SSID "network45"                                            
-#define WIFI_PASSWORD "osman45123"                                  
+#define FIREBASE_HOST "****************" //veritabanı host adı
+#define FIREBASE_AUTH "**************" //secret key
+#define WIFI_SSID "*****" //bağlı olunan wifi adı
+#define WIFI_PASSWORD "*******" //bağlı olunan wifi parolası                              
  
 #define DHTPIN D4                                                          
 #define DHTTYPE DHT22                                                       
