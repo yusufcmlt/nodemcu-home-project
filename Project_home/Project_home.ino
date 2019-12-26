@@ -1,80 +1,85 @@
+//Kutuphanelerin tanimi
 #include <ESP8266WiFi.h>                                                    
 #include <FirebaseArduino.h>                                                
 #include <DHT.h>                                                            
 
-#define FIREBASE_HOST "ev-otomasyon-f0c18.firebaseio.com"                         
-#define FIREBASE_AUTH "uK0BHzQJMsZSLXSKipLVM989vQbP9jxGlFJWdtnc"            
+//Firebase anahtar ve veritabani adi
+#define FIREBASE_HOST "*** BURAYA FIREBASE VERITABANI ADI ***"                         
+#define FIREBASE_AUTH "*** BURAYA VERI TABANI BAĞLANTI ANAHTARI ***"            
 
-#define WIFI_SSID "osman"                                             
-#define WIFI_PASSWORD "osman123"                                    
- 
-#define DHTPIN D4                                                           
-#define DHTTYPE DHT22                                                       
+//Wireless ssid ve sifre
+#define WIFI_SSID "*** BURAYA WIFI-SSID"                                             
+#define WIFI_PASSWORD "*** BURAYA WIFI SIFRE ***"                                    
+
+#define DHTPIN D4        //Sicaklik ve nem sensoru pin belirlenmesi                                                   
+#define DHTTYPE DHT22    //Sicaklik sensor tanimi                                               
 DHT dht(DHTPIN, DHTTYPE); 
 
 void setup() 
 {
-  Serial.begin(9600);
-  pinMode(D1, OUTPUT); //lamba
-  pinMode(D2,OUTPUT); //klima
+  Serial.begin(9600); //Serial haberlesmenin baslatilmasi
+  pinMode(D1, OUTPUT); //led pinin tanimi
+  pinMode(D2,OUTPUT); //fan ledinin tanimi
   delay(1000);                
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);                                     
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD); //Wireless haberlesmenin baslatilmasi    
+  //Wireles haberlesmenin serial ekranda yazdirilmasi                            
   Serial.print("Connecting to ");
   Serial.print(WIFI_SSID);
+
+  //Wireless agina baglanana kadar denenmesi
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
     delay(500);
   }
+
+  //Wireless aga baglanma durumu
   Serial.println();
   Serial.print("Connected to ");
   Serial.println(WIFI_SSID);
   Serial.print("IP Address is : ");
-  Serial.println(WiFi.localIP());                                            
-  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);                            
+  Serial.println(WiFi.localIP());
+  //Wireless aga baglanma durumunda firebase veritabanina verilen isim ve key ile baglanma                                
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);    
+  //Sicaklik sensorun calistirilmasi                        
   dht.begin();                                                              
 }
 
+//Sicaklik ve nem degerlerinin veritabanina yazilmasi
 void sicakliknem(float t,float h)
-{
+{ 
+
+  //Alinan degerlerin kontrolu
   if (isnan(h) || isnan(t)) {                                                
     Serial.println(F("Failed to read from DHT sensor!"));
     return;
   }
-  Serial.print("Humidity: ");  Serial.print(h);
+  //Degerlerin dogrulugu durumunda serial monitor uzerinde degerlerin yazimi
+  Serial.print("NEM: ");  Serial.print(h);
   String fireHumid = String(h) + String("%");                                         
-  Serial.print("%  Temperature: ");  Serial.print(t);  Serial.println("Â°C ");
-  String fireTemp = String(t) + String("Â°C");                                                     
-  
+  Serial.print("%  Sicaklik: ");  Serial.print(t);  Serial.println("°C ");
+  String fireTemp = String(t) + String("°C");                                                     
+
+  //Degerlerin firebase veritabanina eklenmesi
   Firebase.pushInt("/nem/deger",h);                               
-//  if(h<60){
-//    Firebase.setString("/nem/durum","Dusuk");
-//    }
-//   else{
-//    Firebase.setString("/nem/durum","Yuksek");
-//    }
-//  
   Firebase.pushInt("/sicaklik/deger",t);                                   
-//  if(t<25){
-//    Firebase.setString("/sicaklik/durum","Dusuk");
-//    }
-//  else{
-//    Firebase.setString("/sicaklik/durum","Yuksek");
-//    }
 }
 
+//Ledin veritabani uzerinden kontrolu
+//n degeri veritabanindaki degiskene esdeger
 void lamba(int n)
 {
   if (n==1) {
-  Serial.println("LED ON");
+  Serial.println("LED ACIK");
   digitalWrite(D1,HIGH);  
   }
   else {
-  Serial.println("LED OFF");
+  Serial.println("LED KAPALI");
   digitalWrite(D1,LOW);  
   }
 }
 
-
+//Fanin relay ile veritabani uzerinden kontrolu
+//n degeri veritabanindaki relay kontrol degeri
 void klima(int n)
 {
   if (n==1) {
@@ -87,24 +92,23 @@ void klima(int n)
   }
 }
 
+//Gaz sensorunun analog pin uzerinden kontrolu
+//Alinan gaz degerinin serial monitor uzerinde gosterilmesi ve veritabanina eklenmesi.
 void gaz(int deger)
 { 
   Firebase.pushInt("/gaz/deger", deger);
   Serial.println (deger);
-//  if (deger>=280){
-//      Firebase.setString("/gaz/durum", "yuksek");
-//  }
-//  else
-//  {
-//      Firebase.setString("/gaz/durum", "dusuk");
-//  }
+
 }
 
+
+//NodeMcu'nun calismasi durumunda sensor fonksiyonlarinin cagirilmasi ve calistirilmasi
+//Cihaz her 2 saniyede bir veri aktarimi saglamaktadir.
 void loop() 
 { 
   lamba(Firebase.getInt("lamba"));
   klima(Firebase.getInt("klima"));
   sicakliknem(dht.readTemperature(),dht.readHumidity());
   gaz(analogRead(A0));
-  delay(3000);                                     
+  delay(2000);                                     
 }
