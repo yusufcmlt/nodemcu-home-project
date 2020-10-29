@@ -39,7 +39,7 @@ const Sidebar = ({ history, selectedButton }) => {
       <div className="sidebar-links-container">
         <a
           className="github-link"
-          href="https://github.com/pdouu"
+          href="https://github.com/akdagosman/Home-automation/tree/client-refactor"
           target="_blank"
           rel="noopener noreferrer"
         >
