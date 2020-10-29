@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/react-nodemcu-client/static/css/main.d4b0f6d4.chunk.css",
+    "main.js": "/react-nodemcu-client/static/js/main.77377db3.chunk.js",
+    "main.js.map": "/react-nodemcu-client/static/js/main.77377db3.chunk.js.map",
+    "runtime-main.js": "/react-nodemcu-client/static/js/runtime-main.c1bdb786.js",
+    "runtime-main.js.map": "/react-nodemcu-client/static/js/runtime-main.c1bdb786.js.map",
+    "static/js/2.3aa309b8.chunk.js": "/react-nodemcu-client/static/js/2.3aa309b8.chunk.js",
+    "static/js/2.3aa309b8.chunk.js.map": "/react-nodemcu-client/static/js/2.3aa309b8.chunk.js.map",
+    "index.html": "/react-nodemcu-client/index.html",
+    "static/css/main.d4b0f6d4.chunk.css.map": "/react-nodemcu-client/static/css/main.d4b0f6d4.chunk.css.map",
+    "static/js/2.3aa309b8.chunk.js.LICENSE.txt": "/react-nodemcu-client/static/js/2.3aa309b8.chunk.js.LICENSE.txt",
+    "static/media/Sidebar-style.scss": "/react-nodemcu-client/static/media/github.fa0212fe.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c1bdb786.js",
+    "static/js/2.3aa309b8.chunk.js",
+    "static/css/main.d4b0f6d4.chunk.css",
+    "static/js/main.77377db3.chunk.js"
+  ]
+}
