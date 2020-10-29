@@ -18,14 +18,9 @@ const HomePage = () => {
         <p className="second-par">
           Bu projede NodeMCU kullanılarak çeşitli cihazlar kontrol edilmeye
           çalışılmıştır. Çeşitli sensörlerden gelen bilgiler grafikler ile
-          değelendirilmiştir.İlgili bölümlere sol menüden ulaşabilirsiniz. Proje
-          kodlarına ise yine menüdeki github butonundan ulaşabilirsiniz.
+          değerlendirilmiştir. İlgili bölümlere sol menüden ulaşabilirsiniz.
+          Proje kodlarına ise yine menüdeki github butonundan ulaşabilirsiniz.
         </p>
-        <img
-          className="nodemcu-image"
-          src="https://firebasestorage.googleapis.com/v0/b/ev-otomasyon-f0c18.appspot.com/o/assets%2Fesp8266_nodemcu.png?alt=media&token=b8205306-842a-4599-bc10-191ac7045293"
-          alt="nodemcu"
-        />
       </div>
     </div>
   );

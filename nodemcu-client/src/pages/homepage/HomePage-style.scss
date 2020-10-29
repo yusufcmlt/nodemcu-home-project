@@ -6,7 +6,7 @@
   flex-direction: column;
 
   .homepage-text {
-    background-color: rgb(253, 216, 135);
+    background-color: rgb(255, 223, 153);
     padding: 50px;
     margin-top: 50px;
     width: 60%;
@@ -14,21 +14,19 @@
     flex-direction: column;
     justify-content: space-around;
     text-align: justify;
+    &::before {
+      position: absolute;
+      margin-left: 200px;
+      transform: rotate(30deg);
+      width: 250px;
+      height: 450px;
+      content: "";
+      background-image: url("https://firebasestorage.googleapis.com/v0/b/ev-otomasyon-f0c18.appspot.com/o/assets%2Fesp8266_nodemcu.png?alt=media&token=b8205306-842a-4599-bc10-191ac7045293");
+      background-size: cover;
+      opacity: 0.1;
+    }
     .first-h2 {
       text-align: right;
-    }
-    .second-par {
-      z-index: 1;
-    }
-    .nodemcu-image {
-      width: 300px;
-      height: 500px;
-      transform: rotate(30deg);
-      z-index: 0;
-      position: absolute;
-      right: 650px;
-      top: 250px;
-      opacity: 0.2;
     }
   }
 }

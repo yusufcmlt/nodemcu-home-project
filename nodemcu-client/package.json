@@ -1,6 +1,6 @@
 {
-  "homepage": "https://pdouu.github.io/react-nodemcu-client/",
-  "name": "nodemcu-client",
+  "homepage": "https://pdouu.github.io/nodemcu-home-project/",
+  "name": "nodemcu-home-project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

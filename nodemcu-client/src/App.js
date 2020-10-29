@@ -12,7 +12,9 @@ const App = ({ history }) => {
   //Getting which button selected from sidebar
   useEffect(() => {
     //Getting pathname and setting button that selected
-    setSelectedButton(history.location.pathname.slice(1));
+    setSelectedButton(
+      history.location.pathname.replace(process.env.PUBLIC_URL, "").slice(1)
+    );
   }, [history.location.pathname]);
   return (
     <div className="app-container">
