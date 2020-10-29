@@ -1,0 +1,24 @@
+.chart-infos {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .info-header {
+    background-color: #f3efef;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .latest-value {
+      font-size: 20px;
+    }
+  }
+  .info-chart {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

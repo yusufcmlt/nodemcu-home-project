@@ -1,25 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import firebase from "../../firebase";
+
 import ControlButton from "./control-button/ControlButton";
-import "./NodemcuControls-style.scss";
-import imageAsset from "../../assets/assets";
 import ControlInfo from "./control-info/ControlInfo";
+
+import imageAsset from "../../assets/assets";
+import "./NodemcuControls-style.scss";
 
 const NodemcuControls = () => {
   const { lamp, lampColored, fan, fanColored } = imageAsset;
-  const [buttonStatus, setButtonStatus] = useState({ lamp: 1, fan: 0 });
-  const [infoValues, setInfoValues] = useState({
-    temperature: 25,
-    humidity: 50,
-    smoke: 260,
-  });
+  const [buttonStatus, setButtonStatus] = useState({ lamp: 0, fan: 0 });
+
   //Setting button status ON/OFF
-  const handleClick = (btnClicked) => {
-    setButtonStatus({
-      ...buttonStatus,
-      [btnClicked]: !buttonStatus[btnClicked],
-    });
+  const handleClick = (buttonRef) => {
+    firebase
+      .database()
+      .ref(`/${buttonRef === "lamp" ? "lamba" : "klima"}`)
+      .set(!buttonStatus[buttonRef]);
   };
-  const { temperature, humidity, smoke } = infoValues;
+
+  //Getting control buttons info from firebase on mount.
+  useEffect(() => {
+    const controlsRef = firebase.database().ref(`/`);
+
+    controlsRef.on("value", (snapshot) => {
+      const { lamba, klima } = snapshot.val();
+
+      setButtonStatus({ lamp: lamba, fan: klima });
+    });
+
+    return () => {
+      controlsRef.off();
+    };
+  }, []);
 
   return (
     <div className="controls-content-container">
@@ -41,21 +54,21 @@ const NodemcuControls = () => {
       <div className="info-container">
         <ControlInfo
           infoName="Sıcaklık"
-          infoValue={temperature}
+          infoValue="sicaklik"
           infoUnit="°"
           minVal={10}
-          maxVal={30}
+          maxVal={35}
         />
         <ControlInfo
           infoName="Nem"
-          infoValue={humidity}
+          infoValue="nem"
           infoUnit="%"
           minVal={50}
           maxVal={80}
         />
         <ControlInfo
           infoName="Duman"
-          infoValue={smoke}
+          infoValue="gaz"
           infoUnit="ppm"
           minVal={200}
           maxVal={250}

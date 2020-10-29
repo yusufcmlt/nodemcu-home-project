@@ -1,0 +1,32 @@
+.chart-button-container {
+  border: none;
+  width: 140px;
+  height: 180px;
+  background-color: #eeeff2;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dddee1;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &.selected-button {
+    border-right: 3px solid #f06000;
+    background-color: #dddee1;
+  }
+  .button-icon {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    margin: auto;
+  }
+  .button-title {
+    font-weight: normal;
+    margin-top: auto;
+  }
+}
