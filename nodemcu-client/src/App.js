@@ -1,25 +1,52 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Header from "./components/layout/Header";
-import Kontroller from "./components/pages/Kontroller";
-import Grafikler from "./components/pages/Grafikler";
-//import firebase from "./firebase.js";
-//import {Link} from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 
-import "./App.css";
+import "./App.scss";
+import Sidebar from "./components/sidebar/Sidebar";
+import HomePage from "./pages/homepage/HomePage";
+import NodemcuCharts from "./pages/nodemcu-charts/NodemcuCharts";
+import NodemcuControls from "./pages/nodemcu-controls/NodemcuControls";
 
-function App() {
+const App = ({ history }) => {
+  const [selectedButton, setSelectedButton] = useState("");
+  //Getting which button selected from sidebar
+  useEffect(() => {
+    //Getting pathname and setting button that selected
+    setSelectedButton(history.location.pathname.slice(1));
+  }, [history.location.pathname]);
   return (
-    <Router>
-      <div className="App">
-        <div className="container">
-          <Header />
-          <Route exact path="/" component={Kontroller} />
-          <Route path="/grafikler" component={Grafikler} />
-        </div>
+    <div className="app-container">
+      <Sidebar selectedButton={selectedButton} />
+      <div className="app-content-container">
+        <Switch>
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + "/"}
+            render={() => {
+              return <HomePage />;
+            }}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + "/kontroller"}
+            render={() => {
+              return <NodemcuControls />;
+            }}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + "/grafikler"}
+            render={() => {
+              return <NodemcuCharts />;
+            }}
+          />
+          <Route
+            render={() => <Redirect to={process.env.PUBLIC_URL + "/"} />}
+          />
+        </Switch>
       </div>
-    </Router>
+    </div>
   );
-}
+};
 
-export default App;
+export default withRouter(App);
