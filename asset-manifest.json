@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/nodemcu-client/static/css/main.6dbf2f5c.chunk.css",
-    "main.js": "/nodemcu-client/static/js/main.1c5b23c1.chunk.js",
-    "main.js.map": "/nodemcu-client/static/js/main.1c5b23c1.chunk.js.map",
+    "main.js": "/nodemcu-client/static/js/main.07f90355.chunk.js",
+    "main.js.map": "/nodemcu-client/static/js/main.07f90355.chunk.js.map",
     "runtime-main.js": "/nodemcu-client/static/js/runtime-main.0a0181b9.js",
     "runtime-main.js.map": "/nodemcu-client/static/js/runtime-main.0a0181b9.js.map",
     "static/js/2.e4f28ca3.chunk.js": "/nodemcu-client/static/js/2.e4f28ca3.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.0a0181b9.js",
     "static/js/2.e4f28ca3.chunk.js",
     "static/css/main.6dbf2f5c.chunk.css",
-    "static/js/main.1c5b23c1.chunk.js"
+    "static/js/main.07f90355.chunk.js"
   ]
 }
