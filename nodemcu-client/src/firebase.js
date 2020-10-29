@@ -11,7 +11,12 @@ const firebaseConfig = {
   appId: "1:583999887802:web:5a8daba2635c5cf31f6583",
   measurementId: "G-V0W0TDG3GS",
 };
-
+export const setLastDate = () => {
+  const lastDate = new Date();
+  database.ref("/lastUsed").set(lastDate.toString());
+};
 firebase.initializeApp(firebaseConfig);
+
+export const database = firebase.database();
 
 export default firebase;

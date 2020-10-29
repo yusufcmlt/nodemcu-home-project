@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../firebase";
+import { database, setLastDate } from "../../firebase";
 
 import ControlButton from "./control-button/ControlButton";
 import ControlInfo from "./control-info/ControlInfo";
@@ -13,15 +13,15 @@ const NodemcuControls = () => {
 
   //Setting button status ON/OFF
   const handleClick = (buttonRef) => {
-    firebase
-      .database()
+    database
       .ref(`/${buttonRef === "lamp" ? "lamba" : "klima"}`)
       .set(!buttonStatus[buttonRef]);
+    setLastDate();
   };
 
   //Getting control buttons info from firebase on mount.
   useEffect(() => {
-    const controlsRef = firebase.database().ref(`/`);
+    const controlsRef = database.ref(`/`);
 
     controlsRef.on("value", (snapshot) => {
       const { lamba, klima } = snapshot.val();

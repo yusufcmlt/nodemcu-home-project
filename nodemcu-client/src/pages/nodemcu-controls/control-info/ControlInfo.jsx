@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../../firebase";
+import { database, setLastDate } from "../../../firebase";
 
 import "./ControlInfo-style.scss";
 
@@ -14,11 +14,12 @@ const ControlInfo = ({ infoValue, infoName, infoUnit, minVal, maxVal }) => {
   };
 
   useEffect(() => {
-    const latestValRef = firebase.database().ref(`${infoValue}/deger`);
+    const latestValRef = database.ref(`${infoValue}/deger`);
     latestValRef.on("value", (snapshot) => {
       const valueKeys = Object.keys(snapshot.val());
 
       setLastVal(snapshot.val()[valueKeys[valueKeys.length - 1]]);
+      setLastDate();
     });
 
     setValueLimit(valueCalculator());

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../firebase.js";
+import { database, setLastDate } from "../../firebase.js";
 
 import ChartInfo from "./chart-info/ChartInfo";
 import ChartButton from "./chart-button/ChartButton";
@@ -20,10 +20,11 @@ const NodemcuCharts = () => {
   const { buttonVal, firebaseVal, unit, dataColor } = selectedButton;
 
   useEffect(() => {
-    const latestValRef = firebase.database().ref(`${firebaseVal}/deger`);
+    const latestValRef = database.ref(`${firebaseVal}/deger`);
     latestValRef.on("value", (snapshot) => {
       const valueKeys = Object.keys(snapshot.val());
       setSensorData([...valueKeys.map((key) => snapshot.val()[key])]);
+      setLastDate();
     });
 
     return () => {
