@@ -3,12 +3,9 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  background-color: rgb(251, 243, 238);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
   font-family: "Noto Sans", sans-serif;
+  background-color: rgb(251, 205, 105);
 }
 
 code {

@@ -7,16 +7,32 @@
 
   .controls-container {
     margin-top: 50px;
-    width: 70%;
+    width: 50%;
     height: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 1366px) {
+      width: 70%;
+    }
+    @media (max-width: 768px) {
+      margin: 0;
+      width: 90%;
+    }
   }
   .info-container {
-    width: 70%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 1366px) {
+      width: 70%;
+    }
+    @media (max-width: 768px) {
+      width: 90%;
+      flex-direction: column;
+      height: 230px;
+      padding: 20px;
+    }
   }
 }

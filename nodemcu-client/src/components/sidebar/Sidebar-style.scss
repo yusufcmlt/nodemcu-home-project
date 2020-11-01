@@ -2,20 +2,32 @@
   background-color: #1a1c20;
   height: 100%;
   width: 300px;
-  border-radius: 15px 0 0 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 300px;
+  }
 
+  .route-buttons-container {
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 768px) {
+      flex-direction: row;
+    }
+  }
   .sidebar-header {
     width: 300px;
     height: 200px;
     display: flex;
-    flex-direction: row;
     background-color: #202227;
-    border-radius: 15px 0 0 0;
     border-bottom: 5px solid #15171a;
     overflow: hidden;
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 180px;
+    }
     .nodemcu-image {
       background-image: url("../../assets/esp8266_nodemcu.png");
       width: 40%;
@@ -38,12 +50,15 @@
   .sidebar-links-container {
     width: 100%;
     height: 90px;
-    border-radius: 0 0 0 15px;
     background-color: #202227;
     border-top: 5px solid #15171a;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 768px) {
+      display: none;
+    }
+
     .github-link {
       cursor: pointer;
       width: 40px;

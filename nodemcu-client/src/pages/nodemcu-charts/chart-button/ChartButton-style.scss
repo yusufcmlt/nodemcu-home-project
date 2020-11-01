@@ -4,6 +4,11 @@
   height: 180px;
   background-color: #eeeff2;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 33%;
+    display: flex;
+    height: 70px;
+  }
 
   &:hover {
     background-color: #dddee1;
@@ -18,12 +23,20 @@
   &.selected-button {
     border-right: 3px solid #f06000;
     background-color: #dddee1;
+    @media (max-width: 768px) {
+      border-right: none;
+      border-bottom: 3px solid #f06000;
+    }
   }
   .button-icon {
     width: 60px;
     height: 60px;
     background-size: cover;
     margin: auto;
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
   }
   .button-title {
     font-weight: normal;

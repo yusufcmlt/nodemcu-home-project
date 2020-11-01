@@ -13,6 +13,9 @@
   justify-content: space-between;
   overflow: hidden;
   padding: 0;
+  @media (max-width: 768px) {
+    width: 150px;
+  }
 
   &:focus {
     outline: none;
