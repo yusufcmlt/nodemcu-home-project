@@ -4,18 +4,11 @@ import { database, setLastDate } from "../../firebase";
 import ControlButton from "./control-button/ControlButton";
 import ControlInfo from "./control-info/ControlInfo";
 
-import {
-  lamp,
-  lampColored,
-  fan,
-  fanColored,
-  smoke,
-  humidity,
-  temperature,
-} from "../../assets/assets";
+import imageAsset from "../../assets/assets";
 import "./NodemcuControls-style.scss";
 
 const NodemcuControls = () => {
+  const { lamp, lampColored, fan, fanColored } = imageAsset;
   const [buttonStatus, setButtonStatus] = useState({ lamp: 0, fan: 0 });
 
   //Setting button status ON/OFF
@@ -48,7 +41,11 @@ const NodemcuControls = () => {
         <ControlButton
           onClick={() => handleClick("lamp")}
           title="LEDLER"
-          icon={buttonStatus.lamp ? lampColored : lamp}
+          icon={
+            buttonStatus.lamp
+              ? "../../../assets/lamp-colored.svg"
+              : "../../../assets/lamp.svg"
+          }
           status={buttonStatus.lamp}
         />
         <ControlButton
@@ -65,7 +62,6 @@ const NodemcuControls = () => {
           infoUnit="°"
           minVal={10}
           maxVal={35}
-          icon={temperature}
         />
         <ControlInfo
           infoName="Nem"
@@ -73,7 +69,6 @@ const NodemcuControls = () => {
           infoUnit="%"
           minVal={50}
           maxVal={80}
-          icon={humidity}
         />
         <ControlInfo
           infoName="Duman"
@@ -81,7 +76,6 @@ const NodemcuControls = () => {
           infoUnit="ppm"
           minVal={200}
           maxVal={250}
-          icon={smoke}
         />
       </div>
     </div>

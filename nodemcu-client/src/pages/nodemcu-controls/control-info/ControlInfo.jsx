@@ -3,7 +3,14 @@ import { database, setLastDate } from "../../../firebase";
 
 import "./ControlInfo-style.scss";
 
-const ControlInfo = ({ infoValue, infoName, infoUnit, minVal, maxVal }) => {
+const ControlInfo = ({
+  infoValue,
+  infoName,
+  infoUnit,
+  minVal,
+  maxVal,
+  icon,
+}) => {
   const [valueLimit, setValueLimit] = useState("low");
   const [lastVal, setLastVal] = useState(0);
 
@@ -35,7 +42,7 @@ const ControlInfo = ({ infoValue, infoName, infoUnit, minVal, maxVal }) => {
         {lastVal}
         <span className={`info-unit ${infoName}`}>{infoUnit}</span>
       </span>
-
+      <i className="info-icon" style={{ backgroundImage: `url(${icon})` }} />
       <span className="info-name">{infoName}</span>
     </div>
   );

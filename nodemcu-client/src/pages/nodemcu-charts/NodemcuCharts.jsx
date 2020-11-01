@@ -5,7 +5,7 @@ import ChartInfo from "./chart-info/ChartInfo";
 import ChartButton from "./chart-button/ChartButton";
 
 import "./NodemcuCharts-style.scss";
-import imageAsset from "../../assets/assets";
+import { smoke, humidity, temperature } from "../../assets/assets";
 
 const NodemcuCharts = () => {
   const [selectedButton, setSelectedButton] = useState({
@@ -16,7 +16,6 @@ const NodemcuCharts = () => {
   });
   const [sensorData, setSensorData] = useState([]);
 
-  const { humidity, temperature, smoke } = imageAsset;
   const { buttonVal, firebaseVal, unit, dataColor } = selectedButton;
 
   useEffect(() => {
