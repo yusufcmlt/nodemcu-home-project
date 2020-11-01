@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/nodemcu-home-project/static/css/main.c1ec83fc.chunk.css",
-    "main.js": "/nodemcu-home-project/static/js/main.f06815a4.chunk.js",
-    "main.js.map": "/nodemcu-home-project/static/js/main.f06815a4.chunk.js.map",
+    "main.css": "/nodemcu-home-project/static/css/main.0af4ed53.chunk.css",
+    "main.js": "/nodemcu-home-project/static/js/main.5fa8c6f5.chunk.js",
+    "main.js.map": "/nodemcu-home-project/static/js/main.5fa8c6f5.chunk.js.map",
     "runtime-main.js": "/nodemcu-home-project/static/js/runtime-main.683acb6d.js",
     "runtime-main.js.map": "/nodemcu-home-project/static/js/runtime-main.683acb6d.js.map",
     "static/js/2.09da0c2a.chunk.js": "/nodemcu-home-project/static/js/2.09da0c2a.chunk.js",
     "static/js/2.09da0c2a.chunk.js.map": "/nodemcu-home-project/static/js/2.09da0c2a.chunk.js.map",
     "index.html": "/nodemcu-home-project/index.html",
-    "static/css/main.c1ec83fc.chunk.css.map": "/nodemcu-home-project/static/css/main.c1ec83fc.chunk.css.map",
+    "static/css/main.0af4ed53.chunk.css.map": "/nodemcu-home-project/static/css/main.0af4ed53.chunk.css.map",
     "static/js/2.09da0c2a.chunk.js.LICENSE.txt": "/nodemcu-home-project/static/js/2.09da0c2a.chunk.js.LICENSE.txt",
     "static/media/Sidebar-style.scss": "/nodemcu-home-project/static/media/github.fa0212fe.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.683acb6d.js",
     "static/js/2.09da0c2a.chunk.js",
-    "static/css/main.c1ec83fc.chunk.css",
-    "static/js/main.f06815a4.chunk.js"
+    "static/css/main.0af4ed53.chunk.css",
+    "static/js/main.5fa8c6f5.chunk.js"
   ]
 }
