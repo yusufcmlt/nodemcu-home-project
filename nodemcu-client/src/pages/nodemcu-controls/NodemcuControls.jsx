@@ -47,13 +47,13 @@ const NodemcuControls = () => {
       <div className="controls-container">
         <ControlButton
           onClick={() => handleClick("lamp")}
-          title="LEDLER"
+          title="Ledler"
           icon={buttonStatus.lamp ? lampColored : lamp}
           status={buttonStatus.lamp}
         />
         <ControlButton
           onClick={() => handleClick("fan")}
-          title="FANLAR"
+          title="Fanlar"
           icon={buttonStatus.fan ? fanColored : fan}
           status={buttonStatus.fan}
         />

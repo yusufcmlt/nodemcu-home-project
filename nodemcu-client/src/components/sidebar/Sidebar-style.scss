@@ -40,7 +40,8 @@
     }
 
     .nodemcu-title {
-      color: #cf7500;
+      font-family: "Karla", sans-serif;
+      color: rgb(240, 164, 0);
       font-size: 30px;
       display: inline-flex;
       align-items: center;
@@ -56,7 +57,7 @@
     justify-content: center;
     align-items: center;
     @media (max-width: 768px) {
-      display: none;
+      height: 35px;
     }
 
     .github-link {
@@ -70,6 +71,10 @@
       &:hover {
         filter: invert(38%) sepia(76%) saturate(5204%) hue-rotate(34deg)
           brightness(80%) contrast(98%);
+      }
+      @media (max-width: 768px) {
+        height: 25px;
+        width: 25px;
       }
     }
   }

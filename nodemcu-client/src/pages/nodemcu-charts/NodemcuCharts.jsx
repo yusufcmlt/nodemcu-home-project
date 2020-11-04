@@ -71,7 +71,7 @@ const NodemcuCharts = () => {
                 buttonVal: "smoke",
                 firebaseVal: "gaz",
                 unit: "ppm",
-                dataColor: "rgb(255, 165, 0,1)",
+                dataColor: "rgb(75, 240, 227,1)",
               })
             }
           />

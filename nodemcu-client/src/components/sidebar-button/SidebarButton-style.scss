@@ -4,16 +4,15 @@
   letter-spacing: 0.5px;
   line-height: 50px;
   padding: 0 35px 0 35px;
-  font-size: 15px;
-  background-color: #1c1e22;
+  font-size: 18px;
+  background-color: #1a1c20;
   color: #cf7500;
-  text-transform: uppercase;
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Karla", sans-serif;
   font-weight: bold;
   margin-top: 3px;
   @media (max-width: 768px) {
@@ -22,7 +21,18 @@
 
   &:hover {
     background-color: #202227;
-    border-bottom: 3px solid rgba(240, 165, 0, 0.5);
+    border-radius: 0 5px 5px 0;
+    width: 95%;
+    border-right: 4px solid rgb(240, 164, 0);
+
+    transition-duration: 0.5s;
+    @media (max-width: 768px) {
+      border-right: none;
+      border-bottom: 2px solid rgb(240, 164, 0);
+      border-radius: 0 0 5px 5px;
+      height: 55px;
+      width: 33%;
+    }
   }
   &:active {
     transform: translateY(2px);
@@ -31,7 +41,14 @@
     outline: none;
   }
   &.selected-button {
-    background-color: #202227;
-    border-bottom: 4px solid rgb(240, 164, 0);
+    background-color: rgb(240, 164, 0);
+    color: black;
+    border-radius: 0 5px 5px 0;
+    width: 98%;
+    @media (max-width: 768px) {
+      border-radius: 0 0 5px 5px;
+      height: 55px;
+      width: 33%;
+    }
   }
 }

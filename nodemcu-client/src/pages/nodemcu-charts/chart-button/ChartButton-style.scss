@@ -21,7 +21,8 @@
   }
 
   &.selected-button {
-    border-right: 3px solid #f06000;
+    border-radius: 0 10px 10px 0;
+    border-right: 5px solid #f06000;
     background-color: #dddee1;
     @media (max-width: 768px) {
       border-right: none;

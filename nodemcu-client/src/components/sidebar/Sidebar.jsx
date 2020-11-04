@@ -8,7 +8,7 @@ const Sidebar = ({ history, selectedButton }) => {
     <div className="sidebar-container">
       <div className="sidebar-header">
         <div className="nodemcu-image" />
-        <h1 className="nodemcu-title">NODEMCU ARAYUZ</h1>
+        <h1 className="nodemcu-title">NodeMCU Arayüz</h1>
       </div>
       <div className="route-buttons-container">
         <SidebarButton
@@ -39,7 +39,7 @@ const Sidebar = ({ history, selectedButton }) => {
       <div className="sidebar-links-container">
         <a
           className="github-link"
-          href="https://github.com/akdagosman/Home-automation/tree/client-refactor"
+          href="https://github.com/pdouu/nodemcu-home-project/tree/client-refactor/nodemcu-client"
           target="_blank"
           rel="noopener noreferrer"
         >

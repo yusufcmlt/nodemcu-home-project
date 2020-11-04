@@ -3,8 +3,12 @@ import "./HomePage-style.scss";
 const HomePage = () => {
   return (
     <div className="homepage-container">
-      <h1 className="page-title">NODEMCU AKILLI EV PROTOTIPI</h1>
-
+      <h1 className="page-title">NodeMCU Akıllı Ev Prototipi</h1>
+      <img
+        className="nodemcu-image"
+        alt="nodemcu"
+        src="https://firebasestorage.googleapis.com/v0/b/ev-otomasyon-f0c18.appspot.com/o/assets%2Fesp8266_nodemcu.png?alt=media&token=b8205306-842a-4599-bc10-191ac7045293"
+      />
       <div className="homepage-text">
         <h2 className="first-h2">NodeMCU Nedir?</h2>
         <p className="firs-par">
