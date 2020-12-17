@@ -1,6 +1,4 @@
-# Home-automation
+# NodeMCU Smart Home Prototype Web UI
 
-* Basit ev otomasyonu prototipi
-* Mikrodenetleyici olarak NodeMcu v3
-* Firebase realtime database
-* Client Reactjs
+- Simple UI for NodeMCU project. Using React&Firebase.
+
