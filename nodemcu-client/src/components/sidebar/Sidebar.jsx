@@ -39,7 +39,7 @@ const Sidebar = ({ history, selectedButton }) => {
       <div className="sidebar-links-container">
         <a
           className="github-link"
-          href="https://github.com/pdouu/nodemcu-home-project/tree/client-refactor/nodemcu-client"
+          href="https://github.com/yusufcmlt/nodemcu-home-project"
           target="_blank"
           rel="noopener noreferrer"
         >
