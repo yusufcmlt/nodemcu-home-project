@@ -12,8 +12,13 @@ const firebaseConfig = {
   measurementId: "G-V0W0TDG3GS",
 };
 export const setLastDate = () => {
-  const lastDate = new Date();
-  database.ref("/lastUsed").set(lastDate.toString());
+  const lastDate = new Date().toString();
+
+  fetch("https://ipapi.co/json/")
+    .then((response) => response.json())
+    .then(({ ip, city, org }) => {
+      database.ref("/lastUsed").set({ time: lastDate, ip, city, org });
+    });
 };
 firebase.initializeApp(firebaseConfig);
 
