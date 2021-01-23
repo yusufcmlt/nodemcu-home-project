@@ -3,27 +3,24 @@ import "./HomePage-style.scss";
 const HomePage = () => {
   return (
     <div className="homepage-container">
-      <h1 className="page-title">NodeMCU Akıllı Ev Prototipi</h1>
-      <img
-        className="nodemcu-image"
-        alt="nodemcu"
-        src="https://firebasestorage.googleapis.com/v0/b/ev-otomasyon-f0c18.appspot.com/o/assets%2Fesp8266_nodemcu.png?alt=media&token=b8205306-842a-4599-bc10-191ac7045293"
-      />
+      <h1 className="page-title">NodeMCU Smart Home Prototype Web UI</h1>
       <div className="homepage-text">
-        <h2 className="first-h2">NodeMCU Nedir?</h2>
-        <p className="firs-par">
-          NodeMCU; kredi kartının yarısı boyutunda, ufak bir elektronik devre
-          kartıdır. Açık kaynak kodlu bir kontrol ünitesidir, maliyeti oldukça
-          düşüktür ve yeteneklidir. Geniş bir kullanım alanına sahip olan ünite;
-          “IOT” nesnelerin interneti olarak adlandırdığımız alanda kullanılarak
-          birçok sorunun çözülmesini sağlamayı amaçlar.
+        <h2>What is NodeMCU?</h2>
+        <p>
+          The NodeMCU (Node MicroController Unit) is an open-source software and
+          hardware development environment built around an inexpensive
+          System-on-a-Chip (SoC) called the ESP8266. The ESP8266, designed and
+          manufactured by Espressif Systems, contains the crucial elements of a
+          computer: CPU, RAM, networking (WiFi), and even a modern operating
+          system and SDK. That makes it an excellent choice for the Internet of
+          Things (IoT) projects of all kinds.
         </p>
-        <h2 className="second-h2">Proje Hakkında</h2>
-        <p className="second-par">
-          Bu projede NodeMCU kullanılarak çeşitli cihazlar kontrol edilmeye
-          çalışılmıştır. Çeşitli sensörlerden gelen bilgiler grafikler ile
-          değerlendirilmiştir. İlgili bölümlere sol menüden ulaşabilirsiniz.
-          Proje kodlarına ise yine menüdeki github butonundan ulaşabilirsiniz.
+        <h2>About This Project</h2>
+        <p>
+          In this project, we tried to control various devices, gather and
+          visualize sensor informations using NodeMCU, React and Firebase. You
+          can use menu to access relevant pages and Github logo for project's
+          source.
         </p>
       </div>
     </div>

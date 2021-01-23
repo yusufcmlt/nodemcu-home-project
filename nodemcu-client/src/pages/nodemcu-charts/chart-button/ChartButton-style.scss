@@ -4,10 +4,13 @@
   height: 180px;
   background-color: #eeeff2;
   cursor: pointer;
+
   @media (max-width: 768px) {
     width: 33%;
     display: flex;
     height: 70px;
+    justify-content: center;
+    align-items: center;
   }
 
   &:hover {
@@ -21,13 +24,12 @@
   }
 
   &.selected-button {
-    border-radius: 0 10px 10px 0;
     border-right: 5px solid #f06000;
     background-color: #dddee1;
     @media (max-width: 768px) {
       border-right: none;
       border-bottom: 3px solid #f06000;
-      border-radius: 0 0 10px 10px;
+      border-radius: unset;
     }
   }
   .button-icon {

@@ -6,7 +6,7 @@
   padding: 0 35px 0 35px;
   font-size: 18px;
   background-color: #1a1c20;
-  color: #cf7500;
+  color: rgb(226, 169, 44);
   border: none;
   cursor: pointer;
   display: flex;
@@ -17,6 +17,7 @@
   margin-top: 3px;
   @media (max-width: 768px) {
     width: 33%;
+    height: 50px;
   }
 
   &:hover {
@@ -24,7 +25,6 @@
     border-radius: 0 5px 5px 0;
     width: 95%;
     border-right: 4px solid rgb(240, 164, 0);
-
     transition-duration: 0.5s;
     @media (max-width: 768px) {
       border-right: none;

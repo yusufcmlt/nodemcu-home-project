@@ -1,13 +1,18 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import SidebarButton from "../sidebar-button/SidebarButton";
+import nodemcuImage from "../../assets/esp8266_nodemcu.png";
 
 import "./Sidebar-style.scss";
 const Sidebar = ({ history, selectedButton }) => {
   return (
     <div className="sidebar-container">
       <div className="sidebar-header">
-        <div className="nodemcu-image" />
+        <img
+          src={nodemcuImage}
+          alt="nodemcu"
+          className="nodemcu-image-sidebar"
+        />
         <h1 className="nodemcu-title">NodeMCU Arayüz</h1>
       </div>
       <div className="route-buttons-container">

@@ -14,11 +14,7 @@ const firebaseConfig = {
 export const setLastDate = () => {
   const lastDate = new Date().toString();
 
-  fetch("https://ipapi.co/json/")
-    .then((response) => response.json())
-    .then(({ ip, city, org }) => {
-      database.ref("/lastUsed").set({ time: lastDate, ip, city, org });
-    });
+  database.ref("/lastUsed").set({ time: lastDate });
 };
 firebase.initializeApp(firebaseConfig);
 
