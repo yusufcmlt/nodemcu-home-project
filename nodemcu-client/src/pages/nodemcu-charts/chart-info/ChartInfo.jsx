@@ -34,16 +34,16 @@ const ChartInfo = ({ data, unit, dataColor }) => {
   return (
     <div className="chart-infos">
       <div className="info-header">
-        <span className="latest-value">Değer: {dataLast + unit}</span>
-        <span className="max-value">En Yüksek: {dataMax + unit}</span>
-        <span className="min-value">En Düşük: {dataMin + unit}</span>
-        <span className="average-value">Ortalama: {dataAvg + unit}</span>
+        <span className="latest-value">Value: {dataLast + unit}</span>
+        <span className="max-value">Max: {dataMax + unit}</span>
+        <span className="min-value">Min: {dataMin + unit}</span>
+        <span className="average-value">Average: {dataAvg + unit}</span>
       </div>
       <div className="info-chart">
         <LineChart
           datasetProp={[
             {
-              label: "Son 10 Saniye İçerisindeki Değerler",
+              label: "Last 5 Value (in 10 seconds)",
               data: [...dataLastFive],
               fill: true,
               backgroundColor: dataColor,

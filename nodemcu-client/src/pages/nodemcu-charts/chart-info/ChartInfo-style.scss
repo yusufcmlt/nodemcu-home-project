@@ -11,8 +11,14 @@
     align-items: center;
     justify-content: space-evenly;
     color: rgb(49, 0, 128);
+    cursor: pointer;
     .latest-value {
       font-size: 20px;
+    }
+    span {
+      &:hover {
+        color: rgb(224, 142, 9);
+      }
     }
   }
   .info-chart {

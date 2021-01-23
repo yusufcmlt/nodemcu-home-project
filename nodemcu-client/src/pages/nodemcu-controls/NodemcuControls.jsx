@@ -43,24 +43,24 @@ const NodemcuControls = () => {
 
   return (
     <div className="controls-content-container">
-      <h1 className="page-title">KONTROLLER</h1>
+      <h1 className="page-title">Controls</h1>
       <div className="controls-container">
         <ControlButton
           onClick={() => handleClick("lamp")}
-          title="Ledler"
+          title="Leds"
           icon={buttonStatus.lamp ? lampColored : lamp}
           status={buttonStatus.lamp}
         />
         <ControlButton
           onClick={() => handleClick("fan")}
-          title="Fanlar"
+          title="Fans"
           icon={buttonStatus.fan ? fanColored : fan}
           status={buttonStatus.fan}
         />
       </div>
       <div className="info-container">
         <ControlInfo
-          infoName="Sıcaklık"
+          infoName="Temperature"
           infoValue="sicaklik"
           infoUnit="°"
           minVal={10}
@@ -68,7 +68,7 @@ const NodemcuControls = () => {
           icon={temperature}
         />
         <ControlInfo
-          infoName="Nem"
+          infoName="Humidity"
           infoValue="nem"
           infoUnit="%"
           minVal={50}
@@ -76,7 +76,7 @@ const NodemcuControls = () => {
           icon={humidity}
         />
         <ControlInfo
-          infoName="Duman"
+          infoName="Smoke"
           infoValue="gaz"
           infoUnit="ppm"
           minVal={200}

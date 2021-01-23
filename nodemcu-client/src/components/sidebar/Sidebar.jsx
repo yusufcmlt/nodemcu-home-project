@@ -13,7 +13,7 @@ const Sidebar = ({ history, selectedButton }) => {
           alt="nodemcu"
           className="nodemcu-image-sidebar"
         />
-        <h1 className="nodemcu-title">NodeMCU Arayüz</h1>
+        <h1 className="nodemcu-title">NodeMCU Web</h1>
       </div>
       <div className="route-buttons-container">
         <SidebarButton
@@ -22,7 +22,7 @@ const Sidebar = ({ history, selectedButton }) => {
           }}
           selected={!selectedButton ? true : false}
         >
-          Anasayfa
+          Home
         </SidebarButton>
         <SidebarButton
           onClick={() => {
@@ -30,7 +30,7 @@ const Sidebar = ({ history, selectedButton }) => {
           }}
           selected={selectedButton === "kontroller" ? true : false}
         >
-          Kontroller
+          Controls
         </SidebarButton>
         <SidebarButton
           onClick={() => {
@@ -38,7 +38,7 @@ const Sidebar = ({ history, selectedButton }) => {
           }}
           selected={selectedButton === "grafikler" ? true : false}
         >
-          Grafikler
+          Charts
         </SidebarButton>
       </div>
       <div className="sidebar-links-container">

@@ -37,7 +37,7 @@ const NodemcuCharts = () => {
       <div className="charts-container">
         <div className="chart-buttons-container">
           <ChartButton
-            title="Sıcaklık"
+            title="Temperature"
             icon={temperature}
             selected={buttonVal === "temperature"}
             onClick={() =>
@@ -50,7 +50,7 @@ const NodemcuCharts = () => {
             }
           />
           <ChartButton
-            title="Nem"
+            title="Humidity"
             icon={humidity}
             selected={buttonVal === "humidity"}
             onClick={() =>
@@ -63,7 +63,7 @@ const NodemcuCharts = () => {
             }
           />
           <ChartButton
-            title="Duman"
+            title="Smoke"
             icon={smoke}
             selected={buttonVal === "smoke"}
             onClick={() =>

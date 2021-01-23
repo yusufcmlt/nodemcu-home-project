@@ -14,7 +14,7 @@ const ControlButton = ({ title, icon, status, ...otherProps }) => {
           status ? "status-open" : "status-closed"
         }`}
       >
-        <h2 className="button-title">{status ? "Açık" : "Kapalı"}</h2>
+        <h2 className="button-title">{status ? "On" : "Off"}</h2>
       </div>
     </button>
   );
